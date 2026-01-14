@@ -1,4 +1,4 @@
-﻿# Elevator-Verification (Arduino Uno)
+﻿# Elevator-Verification
 
 Created an automated elevator system using digital logic principles, verified in software, and implemented on physical hardware. 
 
@@ -52,6 +52,7 @@ In order for the elevator to hit all the floors without missing out on any, I im
 ### Physical Implementation
 
 Before I rewrote my python into C++ code, I had to plan the hardware logics. My plan is to use a IR sensor and IR remote for the floor request inputs. I did not use buttons because in my starter kit only 5 were available and the LED remote had more buttons in order to have inputs for 7 Floors. To control the 7 Segment Digit LED, I used a SN74HC595N, which controlled each of the 7 pins in the Segment Digit LED.  Based on the inputs, the DIGIT LED would traverse up the the request, pause shortly and if there are no more requests then it would reset back to Floor 1. I used 200 Ohm resistors to make sure the current from the IC to the DIGIT LED to make sure I did not short circuit my board. Another reason why I used them is because if the resistor values were too high then the brightness of the DIGIT LED would get affected. Bigger resistance, less lumination. 
+
 
 
 
