@@ -1,4 +1,4 @@
-﻿# Elevator-Verification
+# Elevator-Controller
 
 Created an automated elevator system using digital logic principles, verified in software, and implemented on physical hardware. 
 
