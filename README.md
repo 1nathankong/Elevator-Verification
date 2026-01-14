@@ -14,7 +14,7 @@ Created an automated elevator system using digital logic principles, verified in
 
 ### Elevator Safety Logic Table
 
-| State | Door | Sensor | Output | Next State |
+| State | Door | Req | Output | Next State |
 |-------|------|--------|--------|-------------|
 | IDLE | 0 | 0 | OFF | IDLE |
 | IDLE | 0 | 1 | ON | MOVING |
@@ -41,5 +41,6 @@ stateDiagram-v2
     SERVICING --> SERVICING : Door=1, X
     SERVICING --> MOVING : Door=0, Req=1
 ```
+
 
 
