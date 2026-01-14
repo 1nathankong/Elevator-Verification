@@ -14,25 +14,31 @@ Created an automated elevator system using digital logic principles, verified in
 
 ### Elevator Safety Logic Table
 
+| State | Door | Sensor | Output | Next State |
+|-------|------|--------|--------|-------------|
+| IDLE | 0 | 0 | OFF | IDLE |
+| IDLE | 0 | 1 | ON | MOVING |
+| MOVING | 0 | 0 | ON | MOVING |
+| MOVING | 0 | 1 | OFF | STOPPING |
+| STOPPING | 0 | X | OFF | SERVICING |
+| SERVICING | 1 | X | OFF | SERVICING |
+| SERVICING | 0 | 1 | ON | MOVING |
 
-State	| Door | Sensor |	Request | Output	| Next State
-----------------------------------------------------------------
-IDLE | 0	| 0	| OFF	| IDLE
-----------------------------------------------------------------
-IDLE | 0	| 1 |	ON |	MOVING
-----------------------------------------------------------------
-MOVING	| 0 |	0	ON |	MOVING
-----------------------------------------------------------------
-MOVING | 0 | 1	| OFF	| STOPPING
-----------------------------------------------------------------
-STOPPING	| 0	| X | OFF |	SERVICING
-----------------------------------------------------------------
-SERVICING	| 1	| X	| OFF	| SERVICING
-----------------------------------------------------------------
-SERVICING	| 0	| 1	| ON	| MOVING
-----------------------------------------------------------------
+### Finite State Machine
 
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
 
+    IDLE --> IDLE : Sensor=0 / OFF
+    IDLE --> MOVING : Sensor=1 / ON
 
+    MOVING --> MOVING : Sensor=0 / ON
+    MOVING --> STOPPING : Sensor=1 / OFF
 
+    STOPPING --> SERVICING : OFF
+
+    SERVICING --> SERVICING : Door=1 / OFF
+    SERVICING --> MOVING : Door=0, Sensor=1 / ON
+```
 
