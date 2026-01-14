@@ -29,16 +29,17 @@ Created an automated elevator system using digital logic principles, verified in
 ```mermaid
 stateDiagram-v2
     [*] --> IDLE
-
-    IDLE --> IDLE : Sensor=0 / OFF
-    IDLE --> MOVING : Sensor=1 / ON
-
-    MOVING --> MOVING : Sensor=0 / ON
-    MOVING --> STOPPING : Sensor=1 / OFF
-
-    STOPPING --> SERVICING : OFF
-
-    SERVICING --> SERVICING : Door=1 / OFF
-    SERVICING --> MOVING : Door=0, Sensor=1 / ON
+    
+    IDLE --> MOVING : Door=0, Req=1
+    IDLE --> IDLE : Door=0, Req=0
+    
+    MOVING --> MOVING : Door=0, Req=0
+    MOVING --> STOPPING : Door=0, Req=1
+    
+    STOPPING --> SERVICING : Door=0, X
+    
+    SERVICING --> SERVICING : Door=1, X
+    SERVICING --> MOVING : Door=0, Req=1
 ```
+
 
