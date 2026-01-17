@@ -1,0 +1,72 @@
+req: 1 bytes
+floor: 1 bytes
+state: 1 bytes
+dir: 1 bytes
+door: 1 bytes
+Within 2kb SRAM
+
+BOUNDARY TESTS
+
+[TEST] Top Floor Only | Initial: 0b1000000
+RESULT: PASS (19 ticks)
+
+[TEST] Already At Request | Initial: 0b1
+RESULT: PASS (2 ticks)
+
+[TEST] At Top Request Top | Initial: 0b1000000
+RESULT: PASS (12 ticks)
+
+DIRECTION REVERSAL
+
+[TEST] Zig-Zag | Initial: 0b1010101
+RESULT: PASS (27 ticks)
+
+[TEST] Bottom-Top-Middle | Initial: 0b1001001
+RESULT: PASS (24 ticks)
+
+[TEST] Start Middle Both Ways | Initial: 0b1010101
+RESULT: PASS (21 ticks)
+
+IDLE FUNCTION TESTS
+
+[TEST] Finish At F7 | Initial: 0b1000000
+RESULT: PASS (19 ticks)
+
+[TEST] Finish At F4 | Initial: 0b1000
+RESULT: PASS (13 ticks)
+
+[TEST] No Requests At F5 | Initial: 0b0
+RESULT: PASS (8 ticks)
+
+ADJACENT FLOORS
+
+[TEST] All Adjacent | Initial: 0b111111
+RESULT: PASS (31 ticks)
+
+[TEST] Two Adjacent | Initial: 0b11
+RESULT: PASS (11 ticks)
+
+EDGE CASES
+
+[TEST] No Requests | Initial: 0b0
+RESULT: PASS (0 ticks)
+
+[TEST] Skip Current | Initial: 0b1111110
+RESULT: PASS (34 ticks)
+
+[TEST] Even Floors Only | Initial: 0b101010
+RESULT: PASS (23 ticks)
+
+[TEST] Odd Floors Only | Initial: 0b1010101
+RESULT: PASS (27 ticks)
+
+RANDOM CASES
+
+[TEST] Random 1 | Initial: 0b11
+RESULT: PASS (11 ticks)
+
+[TEST] Random 2 | Initial: 0b111
+RESULT: PASS (16 ticks)
+
+[TEST] Random 3 | Initial: 0b1000001
+RESULT: PASS (15 ticks)
